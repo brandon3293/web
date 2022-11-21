@@ -1,0 +1,80 @@
+
+Intro to JS Level 1 files and Github Repo Link
+Iulian Irimina
+•
+Nov 1
+5 points
+Due Nov 3
+Read and complete the level 1 - subchapters 1-9 
+Turn in all the offline files you create for the work. 
+
+Note:
+
+When you are finished you may choose to work on one project of your choice from the menu provided. The project will be turned in on a separate post.
+
+Level 1
+https://gnrlwoundwort.github.io/Web-Development/Level%201/index.html
+Class comments
+Your work
+Turned in late
+
+project.html
+HTML
+
+index.html
+HTML
+Private comments
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+    <style></style>
+    <script>
+
+        function init(){
+            // num1=3;
+            // num2=4;
+            Output=document.getElementById("btn");
+        }
+
+        function print(){
+            x="You have pressed button"
+            Output.innerHTML=x;
+        }
+
+        function addNum(){
+            var result =num1+num2;
+            console.log(result);
+        }
+        function greet(){
+            console.log("Hello senor");
+        }
+
+        // function shoutTen(){
+        //     console.log("10!");
+        // }
+        function countDown(){
+            x =10;
+            while(x >-1){
+                console.log(x + "!");
+                x--;
+            }
+        }
+
+      init();
+    </script>
+</head>
+<body onload="init();">
+    <div id="btn">
+        You have not clicked the button
+    </div>`
+    <button onclick="print();">Click me</button>
+    <button onclick="countDown();">countDown</button>
+    <button onclick="addNum();">add Numbers</button>
+    
+</body>
+</html>

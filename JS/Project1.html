@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+    <script>
+        function init(){
+            x=0;
+            y=0
+            z=0;
+
+            x1=0;
+            x2=0;
+            x3=0;
+
+            y1=0;
+            y2=0;
+            y3=0;
+
+            ca=0;
+            ce=0;
+            cd=0;
+
+            tc=0;
+
+            fatOutput= document.getElementById("a1");
+            pOutput=document.getElementById("a2");
+            cOutput=document.getElementById("a3");
+
+            e1O=document.getElementById("e1");
+            e2O=document.getElementById("e2");
+            e3O=document.getElementById("e3");
+
+            d1=document.getElementById("d1");
+            d2=document.getElementById("d2");
+            d3=document.getElementById("d3");
+
+            cA=document.getElementById("ac");
+            cE=document.getElementById("ec");
+            cD=document.getElementById("dc");
+            tC=document.getElementById("tc");
+        }
+        function add(){
+            x++;
+            fatOutput.innerHTML=x; 
+            CA();  
+            TC();
+        }
+        function addP(){
+            z++;            
+            pOutput.innerHTML=z;
+            CA();
+            TC();
+        }
+        function addC(){
+            y++;            
+            cOutput.innerHTML=y;
+            CA();
+            TC();
+        }
+        function subtract(){
+            x--;
+            if(x<0){
+                x=0;
+                fatOutput.innerHTML=x;
+            }else{
+                fatOutput.innerHTML=x;
+            }
+            CA();
+            TC();
+        }
+        function subtractP(){
+            z--;
+            if(z<0){
+                z=0;
+                pOutput.innerHTML=z;
+            }else{
+                pOutput.innerHTML=z;
+            }
+            CA();
+            TC();
+        } 
+        function subtractC(){
+            y--
+            if(y<0){
+                y=0;
+                cOutput.innerHTML=y;
+            }else{
+                cOutput.innerHTML=y;
+            }
+            CA();
+            TC();
+        }
+
+        function adde(){
+            x1++;
+            e1O.innerHTML=x1;
+            CE();
+            TC();
+        }
+        function adde2(){
+            x2++;
+            e2O.innerHTML=x2;
+            CE();
+            TC();
+        }
+        function adde3(){
+            x3++;
+            e3O.innerHTML=x3;
+            CE();
+            TC();
+        }
+        function subtracte(){
+            x1--;
+            if(x1<0){
+                x1=0;
+                e1O.innerHTML=x1;
+            }else{
+                e1O.innerHTML=x1;
+            }
+            CE();
+            TC();
+        }
+        function subtracte2(){
+            x2--;
+            if(x2<0){
+                x2=0;
+                e2O.innerHTML=x2;
+            }else{
+                e2O.innerHTML=x2;
+            }
+            CE();
+            TC();
+        }
+        function subtracte3(){
+            x3--;
+            if(x3<0){
+                x3=0;
+                e3O.innerHTML=x3;
+            }else{
+                e3O.innerHTML=x3;
+            }
+            CE();
+            TC();
+        }
+
+        function addd(){
+            y1++;
+            d1.innerHTML=y1;
+            CD();
+            TC();
+        }
+        function addd2(){
+            y2++;
+            d2.innerHTML=y2;
+            CD();
+            TC();
+        }
+        function addd3(){
+            y3++;
+            d3.innerHTML=y3;
+            CD();
+            TC();
+        }
+        function subtractd(){
+            y1--;
+            if(y1<0){
+                y1=0;
+                d1.innerHTML=y1;
+            }else{
+                d1.innerHTML=y1;
+            }
+            CD();
+            TC();
+        }
+        function subtractd2(){
+            y2--;
+            if(y2<0){
+                y2=0;
+                d2.innerHTML=y2;
+            }else{
+                d2.innerHTML=y2;
+            }
+            CD();
+            TC();
+        }
+        function subtractd3(){
+            y3--
+            if(y3<0){
+                y3=0;
+                d3.innerHTML=y3;
+            }else{
+                d3.innerHTML=y3;
+            }
+            CD();
+            TC();
+        }
+
+        function set0(){
+            x=0;
+            y=0;
+            z=0;
+            x1=0;
+            x2=0;
+            x3=0;
+            y1=0;
+            y2=0;
+            y3=0;
+
+            fatOutput.innerHTML=x;
+            cOutput.innerHTML=y;
+            pOutput.innerHTML=z;
+            e1O.innerHTML=x1;
+            e2O.innerHTML=x2;
+            e3O.innerHTML=x3;
+            d1.innerHTML=y1;
+            d2.innerHTML=y2;
+            d3.innerHTML=y3;
+            CA();
+            CD();
+            CE();
+            TC();
+        }
+
+        function rCA(){
+            x=0;
+            y=0;
+            z=0;
+            fatOutput.innerHTML=x;
+            cOutput.innerHTML=y;
+            pOutput.innerHTML=z;
+            CA();
+            TC();
+
+        }
+        function rCE(){
+            x1=0;
+            x2=0;
+            x3=0;
+            e1O.innerHTML=x1;
+            e2O.innerHTML=x2;
+            e3O.innerHTML=x3;
+            CE();
+            TC();
+        }
+        function rCD(){
+            y1=0;
+            y2=0;
+            y3=0;
+            d1.innerHTML=y1;
+            d2.innerHTML=y2;
+            d3.innerHTML=y3;
+            CD();
+            TC();
+        }
+        function CE(){
+            x1=0;
+            x2=0;
+            x3=0;
+            e1O.innerHTML=x1;
+            e2O.innerHTML=x2;
+            e3O.innerHTML=x3;
+            CA();
+            TC();
+        }
+        function CA(){
+            ca=x*9+y*4+z*4;
+            cA.innerHTML=ca;
+        }
+
+        function CE(){
+            ce=x1*9+x2*4+x3*4;
+            cE.innerHTML=ce;
+        }
+        function CD(){
+            cd=y1*9+y2*4+y3*4;
+            cD.innerHTML=cd;
+        }
+
+        function TC(){
+            tc=ca+ce+cd;
+            tC.innerHTML=tc;
+        }
+        
+    </script>
+</head>
+<body id="project1" onload="init();">
+
+    <h1>Calorie Calculator</h1>
+    <div class="grid">
+        <div class="subad"></div>
+        <div class="appetizer">   
+            How many grams of fat would you like in your appetizer? <span id="a1">0</span> grams
+            <button onclick="subtract();">-1g</button><button onclick="add();">+1g</button></br ></br >
+            How many grams of protein would you like in your appetizer? <span id="a2">0</span> grams
+            <button onclick="subtractP();">-1g</button><button onclick="addP();">+1g</button></br ></br >
+            How many grams of carbs would you like in your dessert? <span id="a3">0</span> grams
+            <button onclick="subtractC();">-1g</button><button onclick="addC();">+1g</button></br ></br >
+        </div>
+        <div class="entry">
+            How many grams of fat would you like in your entree? <span id="e1">0</span> grams
+            <button onclick="subtracte();">-1g</button><button onclick="adde();">+1g</button></br ></br >
+            How many grams of protein would you like in your entree? <span id="e2">0</span> grams
+            <button onclick="subtracte2();">-1g</button><button onclick="adde2();">+1g</button></br ></br >
+            How many grams of carbs would you like in your entree? <span id="e3">0</span> grams
+            <button onclick="subtracte3();">-1g</button><button onclick="adde3();">+1g</button></br ></br >
+        </div>
+        <div class="dinner">
+            How many grams of fat would you like in your dessert? <span id="d1">0</span> grams
+            <button onclick="subtractd();">-1g</button><button onclick="addd();">+1g</button></br ></br >
+            How many grams of protein would you like in your dessert? <span id="d2">0</span> grams
+            <button onclick="subtractd2();">-1g</button><button onclick="addd2();">+1g</button></br ></br >
+            How many grams of carbs would you like in your dessert? <span id="d3">0</span> grams
+            <button onclick="subtractd3();">-1g</button><button onclick="addd3();">+1g</button></br ></br >
+        </div>
+        <div class="calorieCounter">
+            Calories in the appetizer: <span id="ac">0</span> Calories</br ></br >
+            Calories in the entree: <span id="ec">0</span> Calories</br ></br >
+            Calories in the dessert: <span id="dc">0</span> Calories</br ></br >
+            Total calories in the meal: <span id="tc">0</span> Calories</br ></br >
+        </div>
+
+        <div class="CalorieBtns">
+            <button onclick="rCA();">reset A</button>
+            <button onclick="rCE();">reset E</button>
+            <button onclick="rCD();">reset D</button>
+            <button onclick="set0();">Reset Everything</button>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

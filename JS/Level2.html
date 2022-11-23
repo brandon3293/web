@@ -5,9 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel=""
     <title>Document</title>
+    <style>
+        div{
+            color:black;
+            /* background-color: red; */
+            font: bold 24pt comic sans ms;
+            text-decoration:underline wavy green
+        }
+
+
+    </style>
+
+    <script>
+
+        function initialize(){
+            ChristmasText=document.getElementById("colorDiv")
+            fore = "black";
+            back = "red";
+            textWidth = 100;
+
+            tetxO=document.getElementById("textDiv");
+            fontO=document.getElementById("sizeout");
+
+            fontSize=24;
+            fontO.innerHTML=fontSize;
+
+        }
+
+        function modifyFontSize(s){
+            fontSize+=s;
+            if(fontSize<4) fontSize=4;
+            fontO.innerHTML=fontSize
+            fontO.style.fontSize = fontSize +"pt";
+        }
+
+        function changeWidth(x){
+            textWidth = x+"%";
+            display();
+        }
+
+       function toggleColor(){ 
+            
+            var temp = fore;
+            fore = back;
+            back = temp;
+
+            display();
+        }
+
+        function display(){
+            ChristmasText.style.color = fore;
+            ChristmasText.style.backgroundColor = back;
+            ChristmasText.style.width = textWidth;
+        }
+    </script>
 </head>
-<body>
+<body onload="initialize();">
+    <!-- <div id="colorDiv">
+        Click button
+    </div>
     
+    <p>
+        <button onclick="toggleColor();">toggle colors</button>
+        <button onclick="changeWidth(25);">25% width</button>
+        <button onclick="changeWidth(50);">50% width</button>
+        <button onclick="changeWidth(75);">75% width</button>
+        <button onclick="changeWidth(100);">100% width</button>
+    </p> -->
+
+    <!-- <div id="textDiv">
+        hello
+    </div>
+
+    <hr />
+
+    <p>
+        <div>Current font size: <span id="sizeout"></span> point</div>
+        <button onclick="modifyFontSize(1);">Font Size ++</button>
+        <button onclick="modifyFontSize(-1);">Font Size --</button>
+    </p> -->
+
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 h1{
     text-align: center;
-    font-size:30px;
+    text-decoration:underline wavy;
 }
 
 /* Project #1 css code */
@@ -10,3 +10,37 @@ h1{
 #project1{
     background-color: red;
 }
+
+button{
+    height:80px;
+    width:80px;
+    font:bold 10pt comic sans ms;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.subad{
+    grid-row:span 2;
+}
+
+.appetizer, .entry, .dinner{
+    display: grid;
+    grid-template-columns: 1fr 100px 100px;
+}
+
+.calorieCounter{
+    margin: auto;
+    text-align: center;
+}
+
+.CalorieBtns{
+    margin-right: auto;
+    margin-left: auto;
+    display:grid;
+    
+}
+

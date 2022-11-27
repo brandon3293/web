@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+    <style></style>
+    <script>
+
+        function init(){
+            output=document.getElementById("rand");
+            secondOutput=document.getElementById("rand2");
+            thirdOutput=document.getElementById("total");
+        }
+        
+        function roll(){
+            
+            x=(parseInt)((Math.random()*6)+1);
+            y=(parseInt)((Math.random()*6)+1);
+            result=x+y;
+            output.innerHTML=x;
+            secondOutput.innerHTML=y;
+            thirdOutput.innerHTML=result;
+        }
+
+
+    </script>
+</head>
+<body id="Dgame" onload="init();">
+    <h1>Dice Game</h1>
+    <div class="game">
+        Dice one roll: <span id="rand">0</span></br >
+        Dice 2 roll: <span id="rand2">0</span></br >
+        Total: <span id="total">0</span></br >
+        <button id="button3" onclick="roll();">roll dice</button>
+    </div>
+</html>
+
+<!-- 
+    Brandon Angos Web DEV period 7/8 
+    So what happens is that you have two dice. When the button 
+    is clicked to numbers will generate which represent the roll of each die.
+    After the die are rolled the value of each roll will be added and then will be shown on the page as the total.
+-->

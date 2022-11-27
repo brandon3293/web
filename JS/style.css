@@ -5,6 +5,23 @@ h1{
     text-decoration:underline wavy;
 }
 
+/* Dice game */
+#Dgame{
+  background-color:deepskyblue;
+}
+
+.game{
+  background-color: beige;
+  /* margin-right: auto;
+  margin-left: auto; */
+  margin: auto;
+  border-radius: 25%;
+  padding:20px;
+  height:50%;
+  width:50%;
+  text-align: center;
+}
+
 /* Project #1 css code */
 
 #project1{

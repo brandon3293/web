@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            visitO=document.getElementById("visits");
+            if(!sessionStorage.numVisits)
+                sessionStorage.numVisits=0;
+            else
+                sessionStorage.numVisits++;
+            display();
+        }
+        function display(){
+            visitO.innerHTML=sessionStorage.numVisits;
+        }
+    </script>
+</head>
+<body onload="init();">
+    <h1>This is my Destination Page</h1>
+    <h2>I have visited here <span id ="visits">0</span> times.</h2>
+    <a href="Level2.html">Return to the Home Page</a>
+</body>
+</html>

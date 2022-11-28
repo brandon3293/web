@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+    <link rel="stylesheet" href="my css test file.css">
     <title>Document</title>
     <style>
-        div{
+        /* div{
             color:black;
-            /* background-color: red; */
+            background-color: red;
             font: bold 24pt comic sans ms;
-            text-decoration:underline wavy green
+            text-decoration:underline wavy green;
+        } */
+
+        a{
+            font:24pt arial;
+            colr:blue;
+            text-decoration: none;
         }
-
-
     </style>
+    <!-- links external file -->
+    <script src = "Scripts.js"></script>
 
-    <script src="Script.js">
-
+    <script>
         function initialize(){
             // ChristmasText=document.getElementById("colorDiv")
             // fore = "black";
@@ -30,38 +36,55 @@
 
             // fontSize=24;
             // fontO.innerHTML=fontSize;
+            NumberO=document.getElementById("numout");
+            rndNum=0;
+            display();
 
         }
 
-        function modifyFontSize(s){
-            fontSize+=s;
-            if(fontSize<4) fontSize=4;
-            fontO.innerHTML=fontSize
-            fontO.style.fontSize = fontSize +"pt";
-        }
-
-        function changeWidth(x){
-            textWidth = x+"%";
+        function changeNum(){
+            rndNum=getRandomInt(1, 10);
             display();
         }
+    //     function modifyFontSize(s){
+    //         fontSize+=s;
+    //         if(fontSize<4) fontSize=4;
+    //         fontO.innerHTML=fontSize;
+    //         fontO.style.fontSize = fontSize +"pt";
+    //     }
 
-       function toggleColor(){ 
+    //     function changeWidth(x){
+    //         textWidth = x+"%";
+    //         display();
+    //     }
+
+    //    function toggleColor(){ 
             
-            var temp = fore;
-            fore = back;
-            back = temp;
+    //         var temp = fore;
+    //         fore = back;
+    //         back = temp;
 
-            display();
-        }
+    //         display();
+    //     }
 
         function display(){
-            ChristmasText.style.color = fore;
-            ChristmasText.style.backgroundColor = back;
-            ChristmasText.style.width = textWidth;
+            // ChristmasText.style.color = fore;
+            // ChristmasText.style.backgroundColor = back;
+            // ChristmasText.style.width = textWidth;
+
+            NumberO.innerHTML=rndNum;
         }
     </script>
 </head>
 <body onload="initialize();">
+    <h1>This is my home page</h1>
+    <a href="Destination.html">Link to Destination Page</a></br > </br >
+    
+    <a href="http://google.com" target="_blank">Link to google</a>
+    <!-- <h1>This is my great page about external files</h1>
+    <p id="numout">0</p>
+    <button onclick="changeNum();">Change the Number</button> -->
+
     <!-- <div id="colorDiv">
         Click button
     </div>

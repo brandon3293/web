@@ -6,14 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Document</title>
-    <script>
-        function init(){
-            
-        }
-    </script>
+    <script src="Scripts.js"></script>
 </head>
-<body>
-    
-    
+<body id="Project2" onload="init();">
+    <div class=" block">
+        <div class="buttons">
+            <div id="larger"></div>
+            <button id="f1st" onclick="toggleImg(1);"></button>
+            <button id="s2nd" onclick="toggleImg(2);"></button>
+            <button id="th3rd"onclick="toggleImg(3);"></button>
+            <button id="f4th"onclick="toggleImg(4);"></button>
+            <button id="fi5th" onclick="toggleImg(5);"></button>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <h2 id="poderes">Select Power Type</h2>
+            <button class="s0" id="re" onclick="togglePower(1);">Solar</button>
+            <button class="s00" id="re" onclick="togglePower(2);">Hydro</button>
+            <button class="s000" id="re" onclick="togglePower(3);">Nuclear</button>
+            <h3>Selected Enhancement: <span id="spower"></span></h3>
+            <!-- <p style="font-weight:bold;">INFO: <span id="infop"></span></p> -->
+        </div>
+        <div>
+            <h2>power level: <span id="pl">0</span></h2>
+            
+            <button class="s1" id="re" onclick="implement(1);">+1</button>
+            <button class="s2"id="re" onclick="implement(2);">-1</button>
+        </div>
+        <div>
+            <h2>top speed: <span id="ts">0</span></h2>
+            
+            <button class="s3"id="re" onclick="implement(3);">+1</button>
+            <button class="s4"id="re" onclick="implement(4);">-1</button>
+        </div>
+        <div>
+            <h2>structural integrity: <span id="si">0</span></h2>
+            <button class="s5"id="re" onclick="implement(5);">+1</button>
+            <button class="s6" id="re" onclick="implement(6);">-1</button>
+        </div>
+        </br>
+        <div>
+            <label class="switch" id="spdt1">
+                <input type="checkbox" name="onoffswitch" value="scanners off" id="switch1" onclick="toggle(this);">
+                <span class="slider round"></span>
+            </label>
+            <span id="result1">---</span>
+        </div>
+        </br>
+        <div>
+            <label class="switch" id="spdt2">
+                <input type="checkbox" name="onoffswitch2" value="defense system off" id="switch2" onclick="toggle2(this);">
+                <span class="slider round"></span>
+            </label>
+            <span id="result2">---</span>
+        </div>
+    </div>
+<br>
+<br>
+    <button onclick="changeVisibility();">Finalize</button>
 </body>
 </html>

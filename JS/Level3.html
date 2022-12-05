@@ -6,8 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Document</title>
+    <script src="Scripts.js"></script>
+    <script>
+        function init(){
+            diceTable=document.getElementById("dicetable");
+            rollDice();
+        }
+        function rollDice(){
+
+            var numRolls=getRandomInt(25,100);
+            for(var i=0; i<numRolls;i++){
+                var dieRoll=getRandomInt(1,6);
+                var newRow = diceTable.insertRow();
+                var newCell = newRow.insertCell();
+                newCell.innerHTML="Roll " + (i+1);
+                newCell=newRow.insertCell();
+                newCell.innerHTML=dieRoll;
+            }
+        }
+    </script>
+    <style>
+        .wrapper{
+            display: flex;
+        }
+        table{
+            border:thick solid grey;
+            border-collapse:collapse ;
+            width:25%;
+        }
+        th,td{
+            border:thin solid black;
+            padding:8px;
+            width:50%;
+        }
+    </style>
 </head>
-<body>
-    
+<body onload="init();">
+
+    <h1 style="text-decoration:none;">Manipulating tables</h1>
+    <div class="wrapper">
+        <div>
+        <table id="dicetable">
+            <tr>
+                <th>Roll</th>
+                <th>Result</th>
+            </tr>
+        </table>
+        </div>
+        <br>
+    </div>
+
 </body>
 </html>

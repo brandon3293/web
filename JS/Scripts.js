@@ -176,3 +176,5 @@ function display(){
     result2.innerHTML=ischecked2;
    
 }
+
+//Javascript for Project 3

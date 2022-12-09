@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function max(x, y){
+            maxi=x;
+            if(maxi<y)
+                maxi=y;
+            else if(maxi===y){
+                maxi="numbers are equal to each other";
+            }
+            return maxi;
+        }
+        function maxiTern(w, x){
+            z=w-x;
+            return z==0 ? "equal to each other" : (z>0 ? "w is the greatest" : "x is the greatest");
+            // result=Math.max(w,x);
+            // IsEqual= Boolean(result==w && result==x);
+            // return (IsEqual ? w + ' and ' + x + ' are equal to each other' : result + ' is the max');
+        }
+        console.log(max(25,28));
+        console.log(maxiTern(-27,-28))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

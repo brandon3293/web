@@ -178,7 +178,21 @@ function getRandomInt(lower, upper){
 // }
 
 //Javascript for Project 3
+function init(){
+    button1=document.querySelector(".cb");
+    button2=document.querySelector(".cb2");
+    button3=document.querySelector(".cb3");
+   
+}
+function toggle(x){
+    if(x==1){
+        button1.value=true;
+        button1.checked=true;
+        button1.checked=true;
+        button1.checked=true;
+    }else if(x==2){
 
-function toggle(){
-
+    }else{
+        
+    }
 }

@@ -33,7 +33,7 @@
     </style>
     <script src="Scripts.js"></script>
 </head>
-<body>
+<body onload="init();">
     
     <div class="grid">
         <div id="header">
@@ -52,9 +52,9 @@
             <form id="menu">
 
                 <p>How many dice will you roll? (Choose one)</p>
-                <input type="checkbox" class="cb" value="false" onclick><span>1 die</span> <br>
-                <input type="checkbox" class="cb" value="false"><span>2 dice</span><br>
-                <input type="checkbox" class="cb" value="false"><span>3 dice</span>
+                <input type="checkbox" class="cb" value="false" onclick="toggle(1);"><span>1 die</span> <br>
+                <input type="checkbox" class="cb2" value="false" onclick="toggle(2);"><span>2 dice</span> <br />
+                <input type="checkbox" class="cb3" value="false" onclick="toggle(3);"><span>3 dice</span>
             </form>
         </div>
     </div>

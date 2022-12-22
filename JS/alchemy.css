@@ -1,0 +1,8 @@
+body{
+    background-image: url(images2/potion.png);
+    background-repeat:no-repeat;
+    background-color: lightgrey;
+    background-size:350px;
+    background-position:right top;
+    background-attachment: fixed;
+}

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="food.css">
+    <link rel="stylesheet" href="alchemy.css">
     <title>Arrays</title>
     <style>
         
@@ -14,6 +15,7 @@
         textarea{
             width:50%;
         }
+        /* learned a lot about arrays and how you can maipulate them a lot to add and delete info from them */
     </style>
     <script src="Scripts.js"></script>
     <script>
@@ -25,6 +27,15 @@
         const name=0, Parent_1=1, Parent_2=2;
         const None="none";
         function init(){
+            myOO=document.getElementById("orgs");
+            fstSO=document.getElementById("1st");
+            sSO=document.getElementById("2nd");
+            organismForm=document.getElementById("orgsform");
+
+            myOrganisms=[Organism_List[0],Organism_List[1],Organism_List[2],Organism_List[3]];
+            firstSO=None;
+            sndSO=None;
+            
             // OutB=document.getElementById("outbox");
             // foodSelectionB=document.getElementById("foodsel");
             // duplicateB=document.getElementById("dupes");
@@ -93,6 +104,39 @@
             }
             return None;
         }
+        function selectOrg(){
+            var idx=parseInt(organismForm.orgsel.value)-1;
+            if(idx<0||idx>=myOrganisms.length){
+                return;
+            }
+            if(firstSO==None||(firstSO !=None&&sndSO!=None)){
+                firstSO=myOrganisms[idx];
+                sndSO=None;
+            }else{
+                sndSO=myOrganisms[idx];
+                addNewOrganism();
+            }
+            organismForm.orgsel.value="";
+            display();
+        }
+        function addNewOrganism(){
+            var newOrganism=findCombo(firstSO,sndSO);
+            if(newOrganism!=None){
+                if(myOrganisms.indexOf(newOrganism)<0){
+                    myOrganisms.push(newOrganism);
+                }
+            }
+        }
+        function deleteOrg(){
+            var idx=parseInt(organismForm.orgsel.value)-1;
+            if(idx<organism_offset||idx>=myOrganisms.length){
+                return;
+            }
+            myOrganisms.splice(idx,1);
+
+            organismForm.orgsel.value="";
+            display();
+        }
         function addMessage(msg){
             // if(isValid(msg)){
             //     log+="<br />" + msg;
@@ -151,6 +195,13 @@
             display();
         }
         function display(){
+
+            myOO.innerHTML="1: "+getOrganismData(myOrganisms[0],name);
+            for(var i=1;i<myOrganisms.length;i++){
+                myOO.innerHTML+="<br />" + (i+1)+": "+getOrganismData(myOrganisms[i], name);
+                fstSO.innerHTML=getOrganismData(firstSO,name);
+                sSO.innerHTML=getOrganismData(sndSO,name);
+            }
             // logOTB.innerHTML = log;
             // OutB.innerHTML="0: "+foodList[0];
             // for(var i=1;i<foodList.length;i++){

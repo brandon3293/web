@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="food.css">
     <title>Arrays</title>
     <style>
-        body{
-            font:bold 18pt calibri;
-        }
+        
         div{
             border:thick double black;
         }
@@ -19,17 +18,80 @@
     <script src="Scripts.js"></script>
     <script>
         const INVALID_CHARS = "<>!@#$%^&*()"
+        const Organism_List = ["Air;None;None","Earth;None;None","Water;None;None",
+        "Fire;None;None","Life;Energy;Swamp","Water;None;None",
+        "Electricity;Energy;Metal","Energy;Air;Fire","Bacteria;Life;Swamp","Stone;Air;Lava"]
+        const organism_offset=4;
+        const name=0, Parent_1=1, Parent_2=2;
+        const None="none";
         function init(){
+            // OutB=document.getElementById("outbox");
+            // foodSelectionB=document.getElementById("foodsel");
+            // duplicateB=document.getElementById("dupes");
+            // countB=document.getElementById("count");
+            // foodList=["Pizza", "Hamburger", "pickles", "cucumber", "Hamburger", "pickles", "Salmon", "Salmon"];
+            // dupesList=[];
+            // dupesCount=0;
+            display();
             // logOTB = document.getElementById("logoutput");
             // logFO = document.getElementById("logform");
             // log = "Log ---";
 
-            arrayO=document.getElementById("divout");
-            List= ["1st item", "2nd item", "3rd item", "4th item", "5th item"];
-            List[2]="hello"
-            arrayO.innerHTML=List;
-            randomList= [];
-            var randomLength = getRandonInt(50,100);
+            // arrayO=document.getElementById("divout");
+            // List= ["1st item", "2nd item", "3rd item", "4th item", "5th item"];
+            // List[2]="hello"
+            // arrayO.innerHTML=List;
+            // randomList= [];
+            // var randomLength = getRandomInt(50,100);
+            
+            // for(var i=0;i<randomLength;i++){
+                
+            //     randomList[randomList.length]= getRandomInt(-10,10);
+            
+            // }
+           
+            // displayList();
+        }
+        function getOrganismN(organism){
+            organism=organism.split(";");
+            var orgName=organism[name];
+            return orgName;
+        }
+        function getFirstParent(organism){
+            return organism.split(";")[Parent_1];
+        }
+        function getSecondParent(organism){
+            return organism.split(";")[Parent_2];
+        }
+        function getOrganismData(organism, idx){
+            return organism.split(";")[idx];
+        }
+        function areParents(organism, parent1, parent2){
+            var firstParent=getOrganismData(organism, Parent_1);
+            var secondParent=getOrganismData(organism, Parent_2);
+            var parent1=getOrganismData(parent1, name);
+            var parent2=getOrganismData(parent2,name);
+            if(firstParent==parent1||secondParent==parent1){
+                if(firstParent==parent2||secondParent==parent2){
+                    return true;
+                }
+            }
+            return false;
+        }
+        function findOrganism(orgName){
+            for(var i in Organism_List){
+                if(getOrganismData(Organism_List[i], name)==orgName){
+                    return Organism_List[i];
+                }
+            }
+        }
+        function findCombo(org1,org2){
+            for(var i in Organism_List){
+                if(areParents(Organism_List[i],org1,org2)){
+                    return Organism_List[i];
+                }
+            }
+            return None;
         }
         function addMessage(msg){
             // if(isValid(msg)){
@@ -60,12 +122,89 @@
         //     }
         //     return msg;
         // }
+        function countDup(array, itm){
+            var itmCount=0;
+            for(var i=0;i<array.length;i++){
+                if(itm==array[i])
+                    itmCount++;    
+            }
+            return itmCount;
+        }
+        function indexesOf(array,itm){
+            var idxList=[];
+            for(var i=0;i<array.length;i++){
+                if(itm==array[i])
+                    idxList.push(i);    
+            }
+            return idxList;
+        }
+        function addFood(){
+            foodList.push(foodSelectionB.value);
+            display();
+        }
+        function getDupeList(){
+            dupesList=indexesOf(foodList, foodSelectionB.value);
+            display();
+        }
+        function getDupeCount(){
+            dupesCount=countDup(foodList, foodSelectionB.value);
+            display();
+        }
         function display(){
             // logOTB.innerHTML = log;
+            // OutB.innerHTML="0: "+foodList[0];
+            // for(var i=1;i<foodList.length;i++){
+            //     OutB.innerHTML+="<br />"+i+": "+foodList[i];
+            // }
+            // duplicateB.innerHTML=dupesList;
+            // countB.innerHTML=dupesCount;
         }
     </script>
 </head>
 <body onload="init();">
+    <h1>
+        <span>Alchemy</span>
+    </h1>
+    <div class="box">
+        <h2>My Organisms</h2>
+        <div id="orgs"></div>
+        <hr />
+        <form id="orgsform">
+            <input type="number" name="orgsel"/>
+        </form>
+        <button onclick="selectOrg();">Select Organisms</button>
+        <button onclick="deleteOrg();">Delete Organisms</button>
+    </div>
+    <hr />
+    <p>
+        <span id="1st"></span> AND <span id="2nd"></span>
+    </p>
+    <!-- <h1>Food List</h1>
+    <label>
+        Selection: <input type="text" id="foodsel">
+    </label>
+    <hr />
+    <button onclick="addFood();">
+        Add food
+    </button>
+    <button onclick="getDupeList();">
+        Find duplicates
+    </button>
+    <button onclick="getDupeCount();">
+        Count duplicates
+    </button><br />
+
+    <div>
+        duplicate indices: <span id="dupes"></span>
+    </div>
+
+    <div>
+        Count of duplicate indices: <span id="count"></span>
+    </div>
+    <hr />
+    <div>
+        <div id="outbox"></div>
+    </div> -->
     <!-- <h2>Daily log</h2>
     <form id="logform">
         <textarea name="loginput"></textarea>
@@ -78,6 +217,6 @@
 
     <div id="logoutput">Log ---</div> -->
 
-    <div id="divout"></div>
+    <!-- <div id="divout"></div> -->
 </body>
 </html>

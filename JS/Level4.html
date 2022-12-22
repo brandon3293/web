@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Arrays</title>
     <style>
+        body{
+            font:bold 18pt calibri;
+        }
         div{
             border:thick double black;
         }
@@ -13,21 +16,68 @@
             width:50%;
         }
     </style>
+    <script src="Scripts.js"></script>
     <script>
+        const INVALID_CHARS = "<>!@#$%^&*()"
+        function init(){
+            // logOTB = document.getElementById("logoutput");
+            // logFO = document.getElementById("logform");
+            // log = "Log ---";
 
+            arrayO=document.getElementById("divout");
+            List= ["1st item", "2nd item", "3rd item", "4th item", "5th item"];
+            List[2]="hello"
+            arrayO.innerHTML=List;
+            randomList= [];
+            var randomLength = getRandonInt(50,100);
+        }
+        function addMessage(msg){
+            // if(isValid(msg)){
+            //     log+="<br />" + msg;
+            // }else{
+            //     newMSG=validate(msg);
+            //     log+="<br />" +newMSG;
+            // }
+
+            // log+="<br />"+validate(msg);
+            // display();
+        }
+        // function isValid(msg){
+        //     for(var i=0;i<INVALID_CHARS.length;i++){
+        //         if(msg.indexOf(INVALID_CHARS.charAt(i)) >= 0){
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // function validate(msg){
+        //     for(var i=0;i<msg.length;i++){
+        //         for(var j=0;j<INVALID_CHARS.length;j++)
+        //         if(msg.charAt(i)===INVALID_CHARS.charAt(j)){
+        //             msg=msg.substring(0,i)+msg.substring(i+1);
+        //             i--;
+        //         }
+        //     }
+        //     return msg;
+        // }
+        function display(){
+            // logOTB.innerHTML = log;
+        }
     </script>
 </head>
 <body onload="init();">
-    <h2>Daily log</h2>
+    <!-- <h2>Daily log</h2>
     <form id="logform">
         <textarea name="loginput"></textarea>
     </form>
-    <button onclick="addMessage(logFormObject.loginput.value);">
+    <button onclick="addMessage(logFO.loginput.value);">
         Add to Log
     </button>
 
     <hr />
 
-    <div id="logoutput">Log ---</div>
+    <div id="logoutput">Log ---</div> -->
+
+    <div id="divout"></div>
 </body>
 </html>

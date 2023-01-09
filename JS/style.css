@@ -1,8 +1,8 @@
 /* One css file for everything */
 
 h1{
-    text-align: center;
-    text-decoration:underline wavy;
+    /* text-align: center;
+    text-decoration:underline wavy; */
 }
 
 /* Dice game */
@@ -253,5 +253,19 @@ input:checked + .slider:before {
   
 }
 
+
+/* Project 3 */
+
+#popup{
+  display: none;
+  grid-column-start:2 ;
+  border: 3px solid #f1f1f1;
+  
+}
+#myForm{
+  max-width: 300px;
+  padding: 10px;
+  background-color: white
+}
 
 

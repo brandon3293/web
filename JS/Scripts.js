@@ -178,21 +178,219 @@ function getRandomInt(lower, upper){
 // }
 
 //Javascript for Project 3
-function init(){
-    button1=document.querySelector(".cb");
-    button2=document.querySelector(".cb2");
-    button3=document.querySelector(".cb3");
-   
-}
-function toggle(x){
-    if(x==1){
-        button1.value=true;
-        button1.checked=true;
-        button1.checked=true;
-        button1.checked=true;
-    }else if(x==2){
 
+
+function init(){   
+    diceTable=document.getElementById("diceTable");
+    diceTable1=document.getElementById("diceTable1");
+    diceTable2=document.getElementById("diceTable2");
+    diceTable3=document.getElementById("diceTable3");
+    diceTable1.style.display = "none";
+    diceTable2.style.display = "none";
+    diceTable3.style.display = "none";
+    RollDice=document.getElementById("rd");
+    button1=document.getElementById("button1");
+    button2=document.getElementById("button2");
+    button3=document.getElementById("button3");
+    // TR=document.getElementById("TableResults");
+    NumberRolls=document.getElementById("number");
+    foo=0;
+    console.log(NumberRolls.value);
+    IdxcheckedBox=0;
+    RollDice.disabled=true;
+
+    // Os=0,Ts=0,Thrs=0,Frs=0,Fis=0,S=0,mode1s=0,mean1s=0,median1s=0;
+    // OneRollResults=[Os,Ts,Thrs,Frs,Fis,S,mean1s,mode1s,median1s];
+    OneRollResults=[1,0,2,0,3,0,4,0,5,0,6,0,0,0,0,0,0];
+    list1=[];
+    mode1s=[];
+    // list1[1]=mode1s;
+    // console.log(list1);
+    console.log(OneRollResults);
+    // OneRollResults[1]+=1;
+    // console.log(OneRollResults);
+
+    list2=[];
+    mode2s=[];
+    TwoRollResults=[2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,0,0,0,0,0,0];
+
+    list3=[];
+    mode3s=[];
+    ThreeRollResults=[3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,0,0,0,0,0,0,0];
+} 
+
+
+
+function DiceRoll(x){
+    if(IdxcheckedBox==0){
+        mode1s=[];
+        OneRollResults[OneRollResults.length-1]+=x;
+        for(var k=0;k<x;k++){
+            RollN = getRandomInt(1,6);
+            console.log("roll " +k+ " "+RollN);
+            list1.push(RollN);
+            console.log(list1);
+            OneRollResults[OneRollResults.length-2]+=RollN;
+            for(var j=0;j<12;j+=2){
+                if(RollN==OneRollResults[j]){
+                    OneRollResults[j+1]+=1;
+                }
+            }
+        }
+        OneRollResults[OneRollResults.length-5]= OneRollResults[OneRollResults.length-2]/OneRollResults[OneRollResults.length-1];
+        list1.sort();
+        console.log(list1);
+        if(OneRollResults[16]%2==0){
+            y=OneRollResults[16]/2;
+            console.log(list1);
+            z=(list1[y]+list1[y-1])/2;
+        }else{
+            y=Math.floor(OneRollResults[16]/2);
+            z=list1[y];
+        }
+        OneRollResults[OneRollResults.length-3]=z;
+
+        gts = Math.max(OneRollResults[1],OneRollResults[3],OneRollResults[5],OneRollResults[7],OneRollResults[9],OneRollResults[11]);
+        console.log(gts);
+        for(var m=0;m<12;m+=2){
+            if(OneRollResults[m+1]==gts){
+                mode1s.push(OneRollResults[m]);
+            }
+        }
+        OneRollResults[OneRollResults.length-4]=mode1s;
+        document.getElementById("1s").innerHTML=OneRollResults[1];
+        document.getElementById("2s").innerHTML=OneRollResults[3];
+        document.getElementById("3s").innerHTML=OneRollResults[5];
+        document.getElementById("4s").innerHTML=OneRollResults[7];
+        document.getElementById("5s").innerHTML=OneRollResults[9];
+        document.getElementById("6s").innerHTML=OneRollResults[11];
+        document.getElementById("Mean").innerHTML=OneRollResults[12];
+        document.getElementById("Mode").innerHTML=OneRollResults[13];
+        document.getElementById("Median").innerHTML=OneRollResults[14];
+        console.log(OneRollResults);
+    }else if(IdxcheckedBox==1){
+        mode2s=[];
+        TwoRollResults[TwoRollResults.length-1]+=x;
+        for(var m=0;m<x;m++){
+            roll1=getRandomInt(1,6);
+            roll2=getRandomInt(1,6);
+            if(roll1==roll2){
+                TwoRollResults[TwoRollResults.length-6]+=1;
+            }
+            RollN=roll1+roll2;
+            list2.push(RollN);
+            TwoRollResults[TwoRollResults.length-2]+=RollN;
+            for(var j=0;j<22;j+=2){
+                if(RollN==OneRollResults[j]){
+                    OneRollResults[j+1]+=1;
+                }
+            }
+        }
+        TwoRollResults[TwoRollResults.length-5]=TwoRollResults[TwoRollResults.length-2]/TwoRollResults[TwoRollResults.length-1];
+        list2.sort();
+        if(TwoRollResults[26]%2==0){
+            y=TwoRollResults[26]/2;
+            console.log(list2);
+            z=(list2[y]+list2[y-1])/2;
+        }else{
+            y=Math.floor(TwoRollResults[26]/2);
+            z=list2[y];
+        }
+        TwoRollResults[TwoRollResults.length-3]=z;
+        gts = Math.max(TwoRollResults[1],TwoRollResults[3],TwoRollResults[5],TwoRollResults[7],TwoRollResults[9],TwoRollResults[11],TwoRollResults[13],TwoRollResults[15],TwoRollResults[17],TwoRollResults[19],TwoRollResults[21]);
+        console.log(gts);
+        for(var m=0;m<22;m+=2){
+            if(TwoRollResults[m+1]==gts){
+                mode2s.push([m]);
+            }
+        }
+        TwoRollResults[TwoRollResults.length-4]=mode2s;
+        document.getElementById("22s").innerHTML=TwoRollResults[1];
+        document.getElementById("33s").innerHTML=TwoRollResults[3];
+        document.getElementById("44s").innerHTML=TwoRollResults[5];
+        document.getElementById("55s").innerHTML=TwoRollResults[7];
+        document.getElementById("66s").innerHTML=TwoRollResults[9];
+        document.getElementById("77s").innerHTML=TwoRollResults[11];
+        document.getElementById("88s").innerHTML=TwoRollResults[13];
+        document.getElementById("99s").innerHTML=TwoRollResults[15];
+        document.getElementById("100s").innerHTML=TwoRollResults[17];
+        document.getElementById("111s").innerHTML=TwoRollResults[19];
+        document.getElementById("122s").innerHTML=TwoRollResults[21];
+        document.getElementById("Doubles").innerHTML=TwoRollResults[22];
+        document.getElementById("MMean").innerHTML=OneRollResults[23];
+        document.getElementById("MMode").innerHTML=OneRollResults[24];
+        document.getElementById("MMedian").innerHTML=OneRollResults[25];
+
+        console.log(TwoRollResults);
     }else{
         
     }
 }
+
+function DisplayTable(){
+    if(IdxcheckedBox==0){
+        diceTable.style.display = "none";
+        diceTable1.style.display = "block";
+        diceTable2.style.display = "none";
+        diceTable3.style.display = "none";
+    }else if(IdxcheckedBox==1){
+        diceTable.style.display = "none";
+        diceTable1.style.display = "none";
+        diceTable2.style.display = "block";
+        diceTable3.style.display = "none";
+    }else{
+        diceTable.style.display = "none";
+        diceTable1.style.display = "none";
+        diceTable2.style.display = "none";
+        diceTable3.style.display = "block";
+    }
+}
+
+function toggleCheckBox(x){
+    RollDice.disabled=false;
+    var checkboxesList = document.getElementsByClassName("cb");
+    for (var i = 0; i < checkboxesList.length; i++) {
+       checkboxesList.item(i).checked = false; 
+    }
+    x.checked=true;
+    console.log(checkboxesList)
+    for(var j=0;j<checkboxesList.length;j++){
+        if(checkboxesList[j].checked==true){
+            IdxcheckedBox=j;
+        }
+    }
+    // console.log(IdxcheckedBox)  how many die are gonna be rolled
+}
+
+function Roll(){
+    document.getElementById("popup").style.display = "block";
+    RollDice.disabled=true;
+    button1.disabled=true;
+    button2.disabled=true;
+    button3.disabled=true;
+
+}
+
+function enter(){
+    foo=parseInt(NumberRolls.value);
+    // console.log(NumberRolls.value);
+    // console.log(foo);
+    closeForm();
+    // The actual Roll Function in order to insert to the table
+    // Inserting data to table will probably be a seperate function
+    DiceRoll(foo);
+    // console.log(NumberRolls.value);
+    // Another function will be called to print out the rows of the Dice Table(final activation)
+    DisplayTable();
+    console.log(foo,IdxcheckedBox)
+}
+
+function closeForm() {
+    document.getElementById("popup").style.display = "none";
+    RollDice.disabled=false;
+    button1.disabled=false;
+    button2.disabled=false;
+    button3.disabled=false;
+    NumberRolls.value=0;
+  }
+  

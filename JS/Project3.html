@@ -5,28 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
     <style>
         .grid{
+        
             display:grid;
             grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(3, 150px);
             
         }
         #header{
             grid-column: span 2; 
             text-align: center;
-            text-decoration:underline solid black;
             color:red;
             
         }
-        #diceTable{
+        #tables{
             display:flex;
             justify-content: center;
         }
-        th{
+        th,td{
             background-color:salmon;
             border:solid rgb(194, 1, 1) 5px;
             padding:10px;
-            width:75px;
+            width:150px;
             height:50px;
 
         }
@@ -39,11 +41,211 @@
         <div id="header">
             <h1>Roll Roll Roll Your Dice</h1>
         </div>
-        <div id="diceTable">
-            <table>
+        <div id="tables">
+            <table id="diceTable">
                 <tr>
-                    <th>Roll</th>
-                    <th>Result</th>
+                    <th id="TableResults">Results</th>
+                    <th></th>
+                </tr>
+            </table>
+            <table id="diceTable1">
+                <tr>
+                    <th id="TableResults">Results</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Frequency of 1s</td>
+                    <td id="1s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 2s</td>
+                    <td id="2s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 3s</td>
+                    <td id="3s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 4s</td>
+                    <td id="4s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 5s</td>
+                    <td id="5s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 6s</td>
+                    <td id="6s"></td>
+                </tr>
+                <tr>
+                    <td>Mean</td>
+                    <td id="Mean"></td>
+                </tr>
+                <tr>
+                    <td>Mode</td>
+                    <td id="Mode"></td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td id="Median"></td>
+                </tr>
+              
+            </table>
+            <table id="diceTable2">
+                <tr>
+                    <th id="TableResults">Results</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Frequency of 2s</td>
+                    <td id="22s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 3s</td>
+                    <td id="33s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 4s</td>
+                    <td id="44s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 5s</td>
+                    <td id="55s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 6s</td>
+                    <td id="66s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 7s</td>
+                    <td id="77s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 8s</td>
+                    <td id="88s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 9s</td>
+                    <td id="99s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 10s</td>
+                    <td id="100s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 11s</td>
+                    <td id="111s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 12s</td>
+                    <td id="122s"></td>
+                </tr>
+                <tr>
+                    <td>Number of Doubles</td>
+                    <td id="Doubles"></td>
+                </tr>
+                <tr>
+                    <td>Mean</td>
+                    <td id="MMean"></td>
+                </tr>
+                <tr>
+                    <td>Mode</td>
+                    <td id="MMode"></td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td id="MMedian"></td>
+                </tr>
+              
+            </table>
+            <table id="diceTable3">
+                <tr>
+                    <th id="TableResults">Results</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Frequency of 3s</td>
+                    <td id="333s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 4s</td>
+                    <td id="44s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 5s</td>
+                    <td id="55s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 6s</td>
+                    <td id="666s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 7s</td>
+                    <td id="777s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 8s</td>
+                    <td id="888s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 9s</td>
+                    <td id="999s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 10s</td>
+                    <td id="1000s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 11s</td>
+                    <td id="1111s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 12s</td>
+                    <td id="1222s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 13s</td>
+                    <td id="1333s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 14s</td>
+                    <td id="1444s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 15s</td>
+                    <td id="1555s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 16s</td>
+                    <td id="1666s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 17s</td>
+                    <td id="1777s"></td>
+                </tr>
+                <tr>
+                    <td>Frequency of 18s</td>
+                    <td id="1888s"></td>
+                </tr>
+                <tr>
+                    <td>Number of Triples</td>
+                    <td id="Triples"></td>
+                </tr>
+                <tr>
+                    <td>Number of Doubles</td>
+                    <td id="Doubles"></td>
+                </tr>
+                <tr>
+                    <td>Mean</td>
+                    <td id="MMean"></td>
+                </tr>
+                <tr>
+                    <td>Mode</td>
+                    <td id="MMode"></td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td id="MMedian"></td>
                 </tr>
               
             </table>
@@ -52,11 +254,24 @@
             <form id="menu">
 
                 <p>How many dice will you roll? (Choose one)</p>
-                <input type="checkbox" class="cb" value="false" onclick="toggle(1);"><span>1 die</span> <br>
-                <input type="checkbox" class="cb2" value="false" onclick="toggle(2);"><span>2 dice</span> <br />
-                <input type="checkbox" class="cb3" value="false" onclick="toggle(3);"><span>3 dice</span>
+                <input type="checkbox" class="cb" id="button1" onclick="toggleCheckBox(this);"><span>1 die</span> <br>
+                <input type="checkbox" class="cb" id="button2" onclick="toggleCheckBox(this);"><span>2 dice</span> <br />
+                <input type="checkbox" class="cb" id="button3" onclick="toggleCheckBox(this);"><span>3 dice</span>
+            </form>
+            <button id="rd" onclick="Roll();">Roll</button>
+        </div>
+        <div id="popup">
+            <form id="myForm" onsubmit="return false">
+                <h2>How may times would you like to roll your dice?</h2>
+                <p>(Max # of Rolls: 10)</p>
+                <label for="Rolls"># of Rolls</label>
+                <input type="number" name="number" id="number" value="0" required min="1" max="10">
+                <button type="button" class="btn" onclick="enter();">Enter</button>
+                <button type="button" class="btn cancel" onclick="closeForm();">Cancel</button>
             </form>
         </div>
+        
     </div>
+   
 </body>
 </html>

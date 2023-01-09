@@ -282,8 +282,8 @@ function DiceRoll(x){
             list2.push(RollN);
             TwoRollResults[TwoRollResults.length-2]+=RollN;
             for(var j=0;j<22;j+=2){
-                if(RollN==OneRollResults[j]){
-                    OneRollResults[j+1]+=1;
+                if(RollN==TwoRollResults[j]){
+                    TwoRollResults[j+1]+=1;
                 }
             }
         }

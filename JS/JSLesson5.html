@@ -6,35 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function Divisible(x){
-            if (x<=0||x>=0){
-                d3=false;
-                d5=false;
-                if(x%3==0){
-                    d3=true;
-                    console.log("Brooklyn");
-                }
-                if(x%5==0){
-                    d5=true;
-                    console.log("Tech");
-                }
-                if(d3&&d5){
-                    console.log("Brooklyn Tech");
-                }
-                if(!d3&&!d5){
-                    console.log(x);
-                }
-            }else{
-                console.log("not a number");
-            }
+        // function Divisible(x){
+        //     if (x<=0||x>=0){
+        //         d3=false;
+        //         d5=false;
+        //         if(x%3==0){
+        //             d3=true;
+        //             console.log("Brooklyn");
+        //         }
+        //         if(x%5==0){
+        //             d5=true;
+        //             console.log("Tech");
+        //         }
+        //         if(d3&&d5){
+        //             console.log("Brooklyn Tech");
+        //         }
+        //         if(!d3&&!d5){
+        //             console.log(x);
+        //         }
+        //     }else{
+        //         console.log("not a number");
+        //     }
             
            
-        }
-        Divisible(14);
-        function isLandscape(w,h){
-            return(w>h) ? console.log("width is greater than the height") : console.log("width is not greater than the height");
-        }
-        isLandscape(1,2);
+        // }
+        // Divisible(14);
+        // function isLandscape(w,h){
+        //     return(w>h) ? console.log("width is greater than the height") : console.log("width is not greater than the height");
+        // }
+        // isLandscape(1,2);
+
+//         let hairColor = ["Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black","Brown","Black","Dark Blonde","Brown","Brown","Brown",
+// "Brown","Blonde","Brown","Blonde","Blonde","Brown","Brown","Black","Black",
+// "Blonde","Brown","Brown","Amber ","Black"];
+// var black=0;
+// for(var x=0;x<hairColor.length;x++){
+//     console.log(hairColor[x]);
+//     if(hairColor[x]=="Black")
+//         black++;
+// }
+// console.log(black/hairColor.length)
+
+const path=require('path');
+const pathObj1=path.parse(_filename);
+const pathObj=path.parse(_dirname);
+console.log(pathObj +"/n"+pathObj1);
+
+const os=require('os');
+console.log(os.freemem());
+
+
     </script>
 </head>
 <body>

@@ -239,11 +239,12 @@ function DiceRoll(x){
             }
         }
         OneRollResults[OneRollResults.length-5]= OneRollResults[OneRollResults.length-2]/OneRollResults[OneRollResults.length-1];
-        list1.sort();
+        list1=list1.sort(function(a,b){
+            return a-b;
+        });
         console.log(list1);
         if(OneRollResults[16]%2==0){
             y=OneRollResults[16]/2;
-            console.log(list1);
             z=(list1[y]+list1[y-1])/2;
         }else{
             y=Math.floor(OneRollResults[16]/2);
@@ -278,23 +279,25 @@ function DiceRoll(x){
             if(roll1==roll2){
                 TwoRollResults[TwoRollResults.length-6]+=1;
             }
-            RollN=roll1+roll2;
-            list2.push(RollN);
-            TwoRollResults[TwoRollResults.length-2]+=RollN;
+            Roll2N=roll1+roll2;
+            list2.push(Roll2N);
+            TwoRollResults[TwoRollResults.length-2]+=Roll2N;
             for(var j=0;j<22;j+=2){
-                if(RollN==TwoRollResults[j]){
+                if(Roll2N==TwoRollResults[j]){
                     TwoRollResults[j+1]+=1;
                 }
             }
         }
         TwoRollResults[TwoRollResults.length-5]=TwoRollResults[TwoRollResults.length-2]/TwoRollResults[TwoRollResults.length-1];
-        list2.sort();
-        if(TwoRollResults[26]%2==0){
-            y=TwoRollResults[26]/2;
-            console.log(list2);
+        list2=list2.sort(function(a,b){
+            return a-b;
+        });
+        console.log(list2);
+        if(TwoRollResults[27]%2==0){
+            y=TwoRollResults[27]/2;
             z=(list2[y]+list2[y-1])/2;
         }else{
-            y=Math.floor(TwoRollResults[26]/2);
+            y=Math.floor(TwoRollResults[27]/2);
             z=list2[y];
         }
         TwoRollResults[TwoRollResults.length-3]=z;
@@ -318,9 +321,9 @@ function DiceRoll(x){
         document.getElementById("111s").innerHTML=TwoRollResults[19];
         document.getElementById("122s").innerHTML=TwoRollResults[21];
         document.getElementById("Doubles").innerHTML=TwoRollResults[22];
-        document.getElementById("MMean").innerHTML=OneRollResults[23];
-        document.getElementById("MMode").innerHTML=OneRollResults[24];
-        document.getElementById("MMedian").innerHTML=OneRollResults[25];
+        document.getElementById("MMean").innerHTML=TwoRollResults[23];
+        document.getElementById("MMode").innerHTML=TwoRollResults[24];
+        document.getElementById("MMedian").innerHTML=TwoRollResults[25];
 
         console.log(TwoRollResults);
     }else{
@@ -329,15 +332,13 @@ function DiceRoll(x){
         doubles=false;
         triples=false;
         for(var m=0;m<x;m++){
-            roll1=getRandomInt(1,6);
-            roll2=getRandomInt(1,6);
-            roll3=getRandomInt(1,6);
-            if(roll1==roll2||roll2==roll3||roll1==roll3){
-                
+            roll11=getRandomInt(1,6);
+            roll22=getRandomInt(1,6);
+            roll33=getRandomInt(1,6);
+            if(roll11==roll22||roll22==roll33||roll11==roll33){
                 doubles=true;
             }
-            if(roll1==roll2&&roll2==roll3){
-                
+            if(roll11==roll22&&roll22==roll33){
                 triples=true;
             }
             if(triples&&doubles){
@@ -351,23 +352,25 @@ function DiceRoll(x){
                     return;
                 }
             }
-            RollN=roll1+roll2+roll3;
-            list3.push(RollN);
-            ThreeRollResults[ThreeRollResults.length-2]+=RollN;
+            Roll3N=roll11+roll22+roll33;
+            list3.push(Roll3N);
+            ThreeRollResults[ThreeRollResults.length-2]+=Roll3N;
             for(var j=0;j<32;j+=2){
-                if(RollN==ThreeRollResults[j]){
+                if(Roll3N==ThreeRollResults[j]){
                     ThreeRollResults[j+1]+=1;
                 }
             }
         }
         ThreeRollResults[ThreeRollResults.length-5]=ThreeRollResults[ThreeRollResults.length-2]/ThreeRollResults[ThreeRollResults.length-1];
-        list3.sort();
-        if(ThreeRollResults[37]%2==0){
-            y=ThreeRollResults[37]/2;
-            console.log(list3);
+        list3=list3.sort(function(a,b){
+            return a-b;
+        });
+        console.log(list3);
+        if(ThreeRollResults[38]%2==0){
+            y=ThreeRollResults[38]/2;
             z=(list3[y]+list3[y-1])/2;
         }else{
-            y=Math.floor(ThreeRollResults[37]/2);
+            y=Math.floor(ThreeRollResults[38]/2);
             z=list3[y];
         }
         ThreeRollResults[ThreeRollResults.length-3]=z;
@@ -381,27 +384,27 @@ function DiceRoll(x){
             }
         }
         ThreeRollResults[ThreeRollResults.length-4]=mode3s;
-        document.getElementById("333s").innerHTML=TwoRollResults[1];
-        document.getElementById("444s").innerHTML=TwoRollResults[3];
-        document.getElementById("555s").innerHTML=TwoRollResults[5];
-        document.getElementById("666s").innerHTML=TwoRollResults[7];
-        document.getElementById("777s").innerHTML=TwoRollResults[9];
-        document.getElementById("888s").innerHTML=TwoRollResults[11];
-        document.getElementById("999s").innerHTML=TwoRollResults[13];
-        document.getElementById("1000s").innerHTML=TwoRollResults[15];
-        document.getElementById("1111s").innerHTML=TwoRollResults[17];
-        document.getElementById("1222s").innerHTML=TwoRollResults[19];
-        document.getElementById("1333s").innerHTML=TwoRollResults[21];
-        document.getElementById("1444s").innerHTML=TwoRollResults[23];
-        document.getElementById("1555s").innerHTML=TwoRollResults[25];
-        document.getElementById("1666s").innerHTML=TwoRollResults[27];
-        document.getElementById("1777s").innerHTML=TwoRollResults[29];
-        document.getElementById("1888s").innerHTML=TwoRollResults[31];
-        document.getElementById("Triples").innerHTML=TwoRollResults[32];
-        document.getElementById("DDoubles").innerHTML=TwoRollResults[33];
-        document.getElementById("MMMean").innerHTML=OneRollResults[34];
-        document.getElementById("MMMode").innerHTML=OneRollResults[35];
-        document.getElementById("MMMedian").innerHTML=OneRollResults[36];
+        document.getElementById("333s").innerHTML=ThreeRollResults[1];
+        document.getElementById("444s").innerHTML=ThreeRollResults[3];
+        document.getElementById("555s").innerHTML=ThreeRollResults[5];
+        document.getElementById("666s").innerHTML=ThreeRollResults[7];
+        document.getElementById("777s").innerHTML=ThreeRollResults[9];
+        document.getElementById("888s").innerHTML=ThreeRollResults[11];
+        document.getElementById("999s").innerHTML=ThreeRollResults[13];
+        document.getElementById("1000s").innerHTML=ThreeRollResults[15];
+        document.getElementById("1111s").innerHTML=ThreeRollResults[17];
+        document.getElementById("1222s").innerHTML=ThreeRollResults[19];
+        document.getElementById("1333s").innerHTML=ThreeRollResults[21];
+        document.getElementById("1444s").innerHTML=ThreeRollResults[23];
+        document.getElementById("1555s").innerHTML=ThreeRollResults[25];
+        document.getElementById("1666s").innerHTML=ThreeRollResults[27];
+        document.getElementById("1777s").innerHTML=ThreeRollResults[29];
+        document.getElementById("1888s").innerHTML=ThreeRollResults[31];
+        document.getElementById("Triples").innerHTML=ThreeRollResults[32];
+        document.getElementById("DDoubles").innerHTML=ThreeRollResults[33];
+        document.getElementById("MMMean").innerHTML=ThreeRollResults[34];
+        document.getElementById("MMMode").innerHTML=ThreeRollResults[35];
+        document.getElementById("MMMedian").innerHTML=ThreeRollResults[36];
 
         console.log(ThreeRollResults);
     }

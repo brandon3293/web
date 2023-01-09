@@ -398,10 +398,10 @@ function DiceRoll(x){
         document.getElementById("1777s").innerHTML=TwoRollResults[29];
         document.getElementById("1888s").innerHTML=TwoRollResults[31];
         document.getElementById("Triples").innerHTML=TwoRollResults[32];
-        document.getElementById("Doubles").innerHTML=TwoRollResults[33];
-        document.getElementById("MMean").innerHTML=OneRollResults[34];
-        document.getElementById("MMode").innerHTML=OneRollResults[35];
-        document.getElementById("MMedian").innerHTML=OneRollResults[36];
+        document.getElementById("DDoubles").innerHTML=TwoRollResults[33];
+        document.getElementById("MMMean").innerHTML=OneRollResults[34];
+        document.getElementById("MMMode").innerHTML=OneRollResults[35];
+        document.getElementById("MMMedian").innerHTML=OneRollResults[36];
 
         console.log(ThreeRollResults);
     }

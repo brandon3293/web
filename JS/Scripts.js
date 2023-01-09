@@ -217,6 +217,7 @@ function init(){
     list3=[];
     mode3s=[];
     ThreeRollResults=[3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,0,0,0,0,0,0,0];
+    // length of 39
 } 
 
 
@@ -323,7 +324,86 @@ function DiceRoll(x){
 
         console.log(TwoRollResults);
     }else{
-        
+        mode3s=[];
+        ThreeRollResults[ThreeRollResults.length-1]+=x;
+        doubles=false;
+        triples=false;
+        for(var m=0;m<x;m++){
+            roll1=getRandomInt(1,6);
+            roll2=getRandomInt(1,6);
+            roll3=getRandomInt(1,6);
+            if(roll1==roll2||roll2==roll3||roll1==roll3){
+                
+                doubles=true;
+            }
+            if(roll1==roll2&&roll2==roll3){
+                
+                triples=true;
+            }
+            if(triples&&doubles){
+                ThreeRollResults[ThreeRollResults.length-7]+=1;
+            }else{
+                if(triples&&doubles==false){
+                    ThreeRollResults[ThreeRollResults.length-7]+=1;
+                }else if(triples==false&&doubles){
+                    ThreeRollResults[ThreeRollResults.length-6]+=1;
+                }else{
+                    return;
+                }
+            }
+            RollN=roll1+roll2+roll3;
+            list3.push(RollN);
+            ThreeRollResults[ThreeRollResults.length-2]+=RollN;
+            for(var j=0;j<32;j+=2){
+                if(RollN==ThreeRollResults[j]){
+                    ThreeRollResults[j+1]+=1;
+                }
+            }
+        }
+        ThreeRollResults[ThreeRollResults.length-5]=ThreeRollResults[ThreeRollResults.length-2]/ThreeRollResults[ThreeRollResults.length-1];
+        list3.sort();
+        if(ThreeRollResults[37]%2==0){
+            y=ThreeRollResults[37]/2;
+            console.log(list3);
+            z=(list3[y]+list3[y-1])/2;
+        }else{
+            y=Math.floor(ThreeRollResults[37]/2);
+            z=list3[y];
+        }
+        ThreeRollResults[ThreeRollResults.length-3]=z;
+        gts = Math.max(ThreeRollResults[1],ThreeRollResults[3],ThreeRollResults[5],ThreeRollResults[7],ThreeRollResults[9],ThreeRollResults[11]
+            ,ThreeRollResults[13],ThreeRollResults[15],ThreeRollResults[17],ThreeRollResults[19],ThreeRollResults[21],ThreeRollResults[23],
+            ThreeRollResults[25],ThreeRollResults[27],ThreeRollResults[29],ThreeRollResults[31]);
+        console.log(gts);
+        for(var m=0;m<32;m+=2){
+            if(ThreeRollResults[m+1]==gts){
+                mode3s.push([m]);
+            }
+        }
+        ThreeRollResults[ThreeRollResults.length-4]=mode3s;
+        document.getElementById("333s").innerHTML=TwoRollResults[1];
+        document.getElementById("444s").innerHTML=TwoRollResults[3];
+        document.getElementById("555s").innerHTML=TwoRollResults[5];
+        document.getElementById("666s").innerHTML=TwoRollResults[7];
+        document.getElementById("777s").innerHTML=TwoRollResults[9];
+        document.getElementById("888s").innerHTML=TwoRollResults[11];
+        document.getElementById("999s").innerHTML=TwoRollResults[13];
+        document.getElementById("1000s").innerHTML=TwoRollResults[15];
+        document.getElementById("1111s").innerHTML=TwoRollResults[17];
+        document.getElementById("1222s").innerHTML=TwoRollResults[19];
+        document.getElementById("1333s").innerHTML=TwoRollResults[21];
+        document.getElementById("1444s").innerHTML=TwoRollResults[23];
+        document.getElementById("1555s").innerHTML=TwoRollResults[25];
+        document.getElementById("1666s").innerHTML=TwoRollResults[27];
+        document.getElementById("1777s").innerHTML=TwoRollResults[29];
+        document.getElementById("1888s").innerHTML=TwoRollResults[31];
+        document.getElementById("Triples").innerHTML=TwoRollResults[32];
+        document.getElementById("Doubles").innerHTML=TwoRollResults[33];
+        document.getElementById("MMean").innerHTML=OneRollResults[34];
+        document.getElementById("MMode").innerHTML=OneRollResults[35];
+        document.getElementById("MMedian").innerHTML=OneRollResults[36];
+
+        console.log(ThreeRollResults);
     }
 }
 

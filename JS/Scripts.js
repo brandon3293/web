@@ -442,9 +442,7 @@ function toggleCheckBox(x){
             IdxcheckedBox=j;
         }
     }
-    // console.log(IdxcheckedBox)  how many die are gonna be rolled
 }
-
 function Roll(){
     document.getElementById("popup").style.display = "block";
     RollDice.disabled=true;
@@ -453,17 +451,10 @@ function Roll(){
     button3.disabled=true;
 
 }
-
 function enter(){
     foo=parseInt(NumberRolls.value);
-    // console.log(NumberRolls.value);
-    // console.log(foo);
     closeForm();
-    // The actual Roll Function in order to insert to the table
-    // Inserting data to table will probably be a seperate function
     DiceRoll(foo);
-    // console.log(NumberRolls.value);
-    // Another function will be called to print out the rows of the Dice Table(final activation)
     DisplayTable();
     console.log(foo,IdxcheckedBox)
 }
